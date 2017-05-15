@@ -1,11 +1,9 @@
 'use strict';
 function addHandlerListener () {
-	console.log('in add habdler');
 	$('#js-shopping-list-form').submit( function (event) {
 	event.preventDefault();
 	var addItem = $('#shopping-list-entry').val();
 	updateState (state, addItem);
-	// how do I render directly from the state?
 	renderAdd (addItem);
 	console.log (addItem);
 	});
@@ -37,9 +35,9 @@ function renderAdd (item) {
 function checkHandlerListener () {
 	$('.shopping-item-toggle').click(function (event) {
 		event.preventDefault();
-		//how do I select just the selector of the event to use closest()?
 		console.log(event , this +'check function');
-		$(event.target).closest( 'span').toggleClass( 'shopping-item__checked');
+		console.log($(event.target).closest( 'li' ).find( '.shopping-item'));
+		$(this).closest( 'li' ).find( '.shopping-item').toggleClass( 'shopping-item__checked');
 	});
 
 }
